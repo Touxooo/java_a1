@@ -5,13 +5,6 @@ import java.util.*;
  * 
  */
 public class Menu {
-
-    /**
-     * Default constructor
-     */
-    private Menu() {
-    }
-
     /**
      * 
      */
@@ -30,15 +23,21 @@ public class Menu {
     /**
      * 
      */
-    public void Menu() {
-        // TODO implement here
+    public Menu() {
+        scanner = new Scanner(System.in);
+        claimManager = new ClaimManager();
+        fileHandler = new FileHandler();
     }
 
     /**
      * 
      */
     public void start() {
-        // TODO implement here
+        List<Customer> customers = fileHandler.readCustomersFromFile("customers.txt");
+
+        for (Customer customer: customers) {
+            System.out.println(customer.toString());
+        }
     }
 
 }

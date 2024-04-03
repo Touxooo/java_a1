@@ -4,14 +4,7 @@ import java.util.*;
 /**
  * 
  */
-public class Customer {
-
-    /**
-     * Default constructor
-     */
-    public Customer() {
-    }
-
+public abstract class Customer {
     /**
      * 
      */
@@ -32,4 +25,19 @@ public class Customer {
      */
     private List<Claim> claimsList;
 
+    /**
+     * Default constructor
+     */
+    public Customer(String id, String fullName) {
+        this.id = id;
+        this.fullName = fullName;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id='" + id + '\'' +
+                ", fullName='" + fullName + '\'' +
+                '}';
+    }
 }

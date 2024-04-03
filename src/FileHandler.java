@@ -1,4 +1,7 @@
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -15,8 +18,25 @@ public class FileHandler {
     /**
      * @param fileName
      */
-    public void readCustomersFromFile(String fileName) {
-        // TODO implement here
+    public List<Customer> readCustomersFromFile(String fileName) {
+        List<Customer> customers = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] values = line.split(",");
+
+                String id = values[0];
+                String fullName = values[1];
+
+                PolicyHolderCustomer policyHolder = new PolicyHolderCustomer(id, fullName);
+                customers.add(policyHolder);
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
+
+        return customers;
     }
 
     /**
@@ -29,8 +49,8 @@ public class FileHandler {
     /**
      * @param fileName
      */
-    public void readClaimsFromFile(String fileName) {
-        // TODO implement here
+    public List<Claim> readClaimsFromFile(String fileName) {
+        return null;
     }
 
     /**
