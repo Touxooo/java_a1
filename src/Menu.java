@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * 
  */
-private class Menu {
+public class Menu {
 
     /**
      * Default constructor

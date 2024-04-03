@@ -13,17 +13,17 @@ public class Util {
     }
 
     /**
-     * @param List
+     * @param entities
      */
-    public void sortEntities(void List) {
+    public void sortEntities(List<?> entities) {
         // TODO implement here
     }
 
     /**
-     * @param List 
+     * @param entities
      * @param fileName
      */
-    public void saveReportToFile(void List, void fileName) {
+    public void saveReportToFile(List<?> entities, String fileName) {
         // TODO implement here
     }
 

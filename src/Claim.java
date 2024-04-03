@@ -30,16 +30,6 @@ public class Claim {
     /**
      * 
      */
-    public void Attribute4;
-
-    /**
-     * 
-     */
-    public void insuredPerson;
-
-    /**
-     * 
-     */
     private String cardNumber;
 
     /**

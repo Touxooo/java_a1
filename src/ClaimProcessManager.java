@@ -7,25 +7,25 @@ import java.util.*;
 public interface ClaimProcessManager {
 
     /**
-     * @param Claim
+     * @param claim
      */
-    public void add(void Claim);
+    public void add(Claim claim);
 
     /**
-     * @param Claim
+     * @param claim
      */
-    public void update(void Claim);
+    public void update(Claim claim);
 
     /**
-     * @param Claim
+     * @param claim
      */
-    public void delete(void Claim);
+    public void delete(Claim claim);
 
     /**
-     * @param String 
+     * @param id
      * @return
      */
-    public Claim getOne(void String);
+    public Claim getOne(String id);
 
     /**
      * @return

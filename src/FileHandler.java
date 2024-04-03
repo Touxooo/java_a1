@@ -13,47 +13,47 @@ public class FileHandler {
     }
 
     /**
-     * @param String
-     */
-    public void readCustomersFromFile(void String) {
-        // TODO implement here
-    }
-
-    /**
-     * @param String
-     */
-    public void readInsuranceCardsFromFile(void String) {
-        // TODO implement here
-    }
-
-    /**
-     * @param String
-     */
-    public void readClaimsFromFile(void String) {
-        // TODO implement here
-    }
-
-    /**
-     * @param List Customer 
      * @param fileName
      */
-    public void writeCustomersToFile(void List Customer, void fileName) {
+    public void readCustomersFromFile(String fileName) {
         // TODO implement here
     }
 
     /**
-     * @param List InsuranceCard 
      * @param fileName
      */
-    public void writeInsuranceCardsToFile(void List InsuranceCard, void fileName) {
+    public void readInsuranceCardsFromFile(String fileName) {
         // TODO implement here
     }
 
     /**
-     * @param List Claim 
      * @param fileName
      */
-    public void writeClaimsToFile(void List Claim, void fileName) {
+    public void readClaimsFromFile(String fileName) {
+        // TODO implement here
+    }
+
+    /**
+     * @param customers
+     * @param fileName
+     */
+    public void writeCustomersToFile(List<Customer> customers, String fileName) {
+        // TODO implement here
+    }
+
+    /**
+     * @param insuranceCards
+     * @param fileName
+     */
+    public void writeInsuranceCardsToFile(List<InsuranceCard> insuranceCards, String fileName) {
+        // TODO implement here
+    }
+
+    /**
+     * @param claims
+     * @param fileName
+     */
+    public void writeClaimsToFile(List<Claim> claims, String fileName) {
         // TODO implement here
     }
 

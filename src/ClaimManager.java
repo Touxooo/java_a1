@@ -1,4 +1,3 @@
-
 import java.util.*;
 
 /**
@@ -6,91 +5,28 @@ import java.util.*;
  */
 public class ClaimManager implements ClaimProcessManager {
 
-    /**
-     * Default constructor
-     */
-    public ClaimManager() {
+    @Override
+    public void add(Claim claim) {
+
     }
 
-    /**
-     * 
-     */
-    private List<Claim> claims;
+    @Override
+    public void update(Claim claim) {
 
-    /**
-     * @param Claim
-     */
-    public void add(void Claim) {
-        // TODO implement here
     }
 
-    /**
-     * @param Claim
-     */
-    public void update(void Claim) {
-        // TODO implement here
+    @Override
+    public void delete(Claim claim) {
+
     }
 
-    /**
-     * @param Claim
-     */
-    public void delete(void Claim) {
-        // TODO implement here
-    }
-
-    /**
-     * @param String 
-     * @return
-     */
-    public Claim getOne(void String) {
-        // TODO implement here
+    @Override
+    public Claim getOne(String id) {
         return null;
     }
 
-    /**
-     * @return
-     */
+    @Override
     public List<Claim> getAll() {
-        // TODO implement here
         return null;
     }
-
-    /**
-     * @param Claim
-     */
-    public void add(void Claim) {
-        // TODO implement here
-    }
-
-    /**
-     * @param Claim
-     */
-    public void update(void Claim) {
-        // TODO implement here
-    }
-
-    /**
-     * @param Claim
-     */
-    public void delete(void Claim) {
-        // TODO implement here
-    }
-
-    /**
-     * @param String 
-     * @return
-     */
-    public Claim getOne(void String) {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * @return
-     */
-    public List<Claim> getAll() {
-        // TODO implement here
-        return null;
-    }
-
 }
