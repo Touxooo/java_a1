@@ -42,8 +42,24 @@ public class FileHandler {
     /**
      * @param fileName
      */
-    public void readInsuranceCardsFromFile(String fileName) {
-        // TODO implement here
+    public List<InsuranceCard> readInsuranceCardsFromFile(String fileName) {
+        List<InsuranceCard> insuranceCards = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] values = line.split(",");
+
+                String id = values[0];
+                String expirationDate = values[1];
+
+                Date fExpirationDate = new Date(expirationDate);
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
+
+        return insuranceCards;
     }
 
     /**
