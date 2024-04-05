@@ -31,6 +31,7 @@ public class Menu {
 
     public void display_menu() {
         System.out.println("1. New claim");
+        System.out.println("2. Exit");
     }
 
     public void display_error(String msg) {
@@ -106,6 +107,9 @@ public class Menu {
             case 1:
                 display_new_claim_form();
                 display_menu();
+                break;
+            case 2:
+                System.exit(0);
                 break;
             default:
                 display_error("This option doesn't exist");
