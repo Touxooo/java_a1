@@ -21,7 +21,7 @@ public interface InsuranceCardDao {
     /**
      * @return
      */
-    public ArrayList<InsuranceCard> getAll();
+    public HashMap<String, InsuranceCard> getAll();
 
     /**
      * @param insuranceCard
