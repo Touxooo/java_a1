@@ -9,8 +9,7 @@ public class PolicyHolderCustomer extends Customer {
     /**
      * Default constructor
      */
-    public PolicyHolderCustomer(String id, String fullName) {
-        super(id, fullName);
+    public PolicyHolderCustomer() {
     }
 
     /**

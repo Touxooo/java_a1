@@ -4,25 +4,25 @@ import java.util.*;
 /**
  * 
  */
-public interface ClaimProcessManager {
+public interface ClaimDao {
 
     /**
-     * @param claim
+     * @param claim claim
      */
     public void add(Claim claim);
 
     /**
-     * @param claim
+     * @param claim claim
      */
     public void update(Claim claim);
 
     /**
-     * @param claim
+     * @param claim claim
      */
     public void delete(Claim claim);
 
     /**
-     * @param id
+     * @param id id
      * @return
      */
     public Claim getOne(String id);
@@ -30,6 +30,6 @@ public interface ClaimProcessManager {
     /**
      * @return
      */
-    public List<Claim> getAll();
+    public ArrayList<Claim> getAll();
 
 }

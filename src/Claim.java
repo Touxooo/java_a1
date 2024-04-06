@@ -27,10 +27,11 @@ public class Claim {
      */
     private Customer insuredPerson;
 
+
     /**
      * 
      */
-    private String cardNumber;
+    private InsuranceCard insuranceCard;
 
     /**
      * 

@@ -12,19 +12,19 @@ public class Util {
     public Util() {
     }
 
-    /**
-     * @param entities
-     */
-    public void sortEntities(List<?> entities) {
-        // TODO implement here
-    }
-
-    /**
-     * @param entities
-     * @param fileName
-     */
-    public void saveReportToFile(List<?> entities, String fileName) {
-        // TODO implement here
-    }
+//    /**
+//     * @param List
+//     */
+//    public void sortEntities(void List) {
+//        // TODO implement here
+//    }
+//
+//    /**
+//     * @param List
+//     * @param fileName
+//     */
+//    public void saveReportToFile(void List, void fileName) {
+//        // TODO implement here
+//    }
 
 }
