@@ -7,14 +7,42 @@ import java.util.*;
 public class PolicyHolderCustomer extends Customer {
 
     /**
-     * Default constructor
+     *
      */
-    public PolicyHolderCustomer() {
-    }
+    private HashMap<String, DependentCustomer> dependentsList;
 
     /**
-     * 
+     * Default constructor
      */
-    private List<DependentCustomer> dependentsList;
+    public PolicyHolderCustomer(String id, String fullName) {
+        super(id, fullName);
+        dependentsList = new HashMap<>();
+    }
 
+    public boolean addDependentCustomer(DependentCustomer dependentCustomer) {
+        if (dependentsList.put(dependentCustomer.getId(), dependentCustomer) == null) {
+            return false;
+        }
+        return true;
+    }
+
+    public String getDependentsCustomersString() {
+        if (dependentsList.isEmpty()) {
+            return "(No dependents)";
+        }
+        StringBuilder res = new StringBuilder("(");
+
+        for (Map.Entry<String, DependentCustomer> set : dependentsList.entrySet()) {
+            res.append(set.getKey()).append(" ").append(set.getValue().getFullName()).append(", ");
+        }
+
+        res = new StringBuilder(res.substring(0, res.length() - 2) + ") ");
+
+        return res.toString();
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " PolicyHolder " + getDependentsCustomersString();
+    }
 }

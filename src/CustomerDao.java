@@ -21,7 +21,7 @@ public interface CustomerDao {
     /**
      * @return
      */
-    public ArrayList<Customer> getAll();
+    public HashMap<String, Customer> getAll();
 
     /**
      * @param customer

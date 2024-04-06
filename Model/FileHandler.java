@@ -1,8 +1,10 @@
-
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 /**
- * 
+ *
  */
 public class FileHandler {
 
@@ -13,73 +15,81 @@ public class FileHandler {
     }
 
     /**
-     * @return
+     * @param fileName
      */
-    public bool loadData() {
-        // TODO implement here
+    public List<Customer> readCustomersFromFile(String fileName) {
+        List<Customer> customers = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] values = line.split(",");
+
+                String id = values[0];
+                String fullName = values[1];
+
+                PolicyHolderCustomer policyHolder = new PolicyHolderCustomer(id, fullName);
+                customers.add(policyHolder);
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
+
+        return customers;
+    }
+
+    /**
+     * @param fileName
+     */
+    public List<InsuranceCard> readInsuranceCardsFromFile(String fileName) {
+        List<InsuranceCard> insuranceCards = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] values = line.split(",");
+
+                String id = values[0];
+                String expirationDate = values[1];
+
+                Date fExpirationDate = new Date(expirationDate);
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
+
+        return insuranceCards;
+    }
+
+    /**
+     * @param fileName
+     */
+    public List<Claim> readClaimsFromFile(String fileName) {
         return null;
     }
 
     /**
-     * @param String filepath 
-     * @return
+     * @param customers
+     * @param fileName
      */
-    public bool loadCustomersFromFile(void String filepath) {
+    public void writeCustomersToFile(List<Customer> customers, String fileName) {
         // TODO implement here
-        return null;
     }
 
     /**
-     * @param String filepath 
-     * @return
+     * @param insuranceCards
+     * @param fileName
      */
-    public bool loadInsuranceCardsFromFile(void String filepath) {
+    public void writeInsuranceCardsToFile(List<InsuranceCard> insuranceCards, String fileName) {
         // TODO implement here
-        return null;
     }
 
     /**
-     * @param String filepath 
-     * @return
+     * @param claims
+     * @param fileName
      */
-    public bool loadClaimsFromFile(void String filepath) {
+    public void writeClaimsToFile(List<Claim> claims, String fileName) {
         // TODO implement here
-        return null;
-    }
-
-    /**
-     * @return
-     */
-    public bool saveData() {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * @param String filepath 
-     * @return
-     */
-    public bool saveCustomersFromFile(void String filepath) {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * @param String filepath 
-     * @return
-     */
-    public bool saveInsuranceCardsFromFile(void String filepath) {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * @param String filepath 
-     * @return
-     */
-    public bool saveClaimsFromFile(void String filepath) {
-        // TODO implement here
-        return null;
     }
 
 }

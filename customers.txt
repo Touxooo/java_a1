@@ -1,1 +1,3 @@
-7777777,Thomas Rabiet,0
+7777777,Thomas Rabiet,policyHolder
+1111111,Martin Delahousse,dependent,7777777
+2222222,Michel Star,dependent,7777777

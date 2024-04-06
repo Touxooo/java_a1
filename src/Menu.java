@@ -9,12 +9,14 @@ public class Menu {
      *
      */
     private Scanner scanner;
+    private InMemoryCustomerDao inMemoryCustomerDao;
 
     /**
      * Default constructor
      */
     public Menu() {
         scanner = new Scanner(System.in).useDelimiter("\n");
+        inMemoryCustomerDao = InMemoryCustomerDao.getInstance();
     }
 
     /**
@@ -27,7 +29,7 @@ public class Menu {
         }
     }
 
-    public void display_error(String msg) {
+    public void displayError(String msg) {
         System.out.println("\033[0;31m" + msg + "\033[0m");
     }
 
@@ -35,8 +37,12 @@ public class Menu {
     /**
      *
      */
-    public void displayUsers() {
-        // TODO implement here
+    public void displayCustomers() {
+        HashMap<String, Customer> customers = inMemoryCustomerDao.getAll();
+
+        for (Map.Entry<String, Customer> set : customers.entrySet()) {
+            System.out.println(set.getValue().toString());
+        }
     }
 
     /**
@@ -75,8 +81,9 @@ public class Menu {
     }
 
     public void displayOptions() {
-        System.out.println("1. New claim");
-        System.out.println("2. Exit");
+        System.out.println("1. Display all customers");
+        System.out.println("2. New claim");
+        System.out.println("3. Exit");
     }
 
     /**
@@ -86,13 +93,16 @@ public class Menu {
         System.out.print("Selection: ");
         switch (scanner.nextInt()) {
             case 1:
-                displayCreateClaimMenu();
+                displayCustomers();
                 break;
             case 2:
+                displayCreateClaimMenu();
+                break;
+            case 3:
                 System.exit(0);
                 break;
             default:
-                display_error("This option doesn't exist");
+                displayError("This option doesn't exist");
                 break;
         }
     }

@@ -62,9 +62,9 @@ public class CreateClaimMenu extends Menu {
     /**
      * @return
      */
-    public bool getConfirmation() {
+    public boolean getConfirmation() {
         // TODO implement here
-        return null;
+        return false;
     }
 
 }

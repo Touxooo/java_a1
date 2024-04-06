@@ -5,35 +5,51 @@ import java.util.*;
  * 
  */
 public class InMemoryCustomerDao implements CustomerDao {
+    /**
+     *
+     */
+    private HashMap<String,Customer> customers;
+
+    private static InMemoryCustomerDao INSTANCE;
 
     /**
      * Default constructor
      */
-    public InMemoryCustomerDao() {
+    private InMemoryCustomerDao() {
+        customers = new HashMap<>();
     }
 
-    /**
-     * 
-     */
-    private HashMap<String,Customer> customers;
+    public static InMemoryCustomerDao getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new InMemoryCustomerDao();
+        }
+
+        return INSTANCE;
+    }
 
     @Override
     public boolean add(Customer customer) {
-        return false;
+        if (customers.put(customer.getId(), customer) == null) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public Customer getOne(String id) {
-        return null;
+        return customers.get(id);
     }
 
     @Override
-    public ArrayList<Customer> getAll() {
-        return null;
+    public HashMap<String, Customer> getAll() {
+        return customers;
     }
 
     @Override
     public boolean update(Customer customer) {
-        return false;
+        if (customers.replace(customer.getId(), customer) == null) {
+            return false;
+        }
+        return true;
     }
 }

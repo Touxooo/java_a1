@@ -9,7 +9,9 @@ public abstract class Customer {
     /**
      * Default constructor
      */
-    public Customer() {
+    public Customer(String id, String fullName) {
+       this.id = id;
+       this.fullName = fullName;
     }
 
     /**
@@ -32,4 +34,40 @@ public abstract class Customer {
      */
     private List<Claim> claimsList;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public InsuranceCard getInsuranceCard() {
+        return insuranceCard;
+    }
+
+    public void setInsuranceCard(InsuranceCard insuranceCard) {
+        this.insuranceCard = insuranceCard;
+    }
+
+    public List<Claim> getClaimsList() {
+        return claimsList;
+    }
+
+    public void setClaimsList(List<Claim> claimsList) {
+        this.claimsList = claimsList;
+    }
+
+    @Override
+    public String toString() {
+        return "ID " + id + " " + fullName;
+    }
 }
