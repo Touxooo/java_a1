@@ -5,16 +5,6 @@ import java.util.*;
  * 
  */
 public abstract class Customer {
-
-    /**
-     * Default constructor
-     */
-    public Customer(String id, String fullName) {
-       this.id = id;
-       this.fullName = fullName;
-       this.insuranceCard = null;
-    }
-
     /**
      * 
      */
@@ -33,7 +23,17 @@ public abstract class Customer {
     /**
      * 
      */
-    private List<Claim> claimsList;
+    private ArrayList<Claim> claimsList;
+
+    /**
+     * Default constructor
+     */
+    public Customer(String id, String fullName) {
+        this.id = id;
+        this.fullName = fullName;
+        this.insuranceCard = null;
+        this.claimsList = new ArrayList<>();
+    }
 
     public String getId() {
         return id;
@@ -59,12 +59,9 @@ public abstract class Customer {
         this.insuranceCard = insuranceCard;
     }
 
-    public List<Claim> getClaimsList() {
-        return claimsList;
-    }
 
-    public void setClaimsList(List<Claim> claimsList) {
-        this.claimsList = claimsList;
+    public void addClaim(Claim claim) {
+        this.claimsList.add(claim);
     }
 
     @Override

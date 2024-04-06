@@ -1,17 +1,11 @@
 
+import java.time.LocalDate;
 import java.util.*;
 
 /**
  * 
  */
 public class Claim {
-
-    /**
-     * Default constructor
-     */
-    public Claim() {
-    }
-
     /**
      * 
      */
@@ -20,7 +14,7 @@ public class Claim {
     /**
      * 
      */
-    private Date date;
+    private LocalDate date;
 
     /**
      * 
@@ -31,12 +25,12 @@ public class Claim {
     /**
      * 
      */
-    private InsuranceCard insuranceCard;
+    private String cardNumber;
 
     /**
      * 
      */
-    private Date examDate;
+    private LocalDate examDate;
 
     /**
      * 
@@ -58,4 +52,102 @@ public class Claim {
      */
     private ReceiverBankingInfo receiverBankingInfo;
 
+    public Claim(String id, LocalDate date, Customer insuredPerson, String cardNumber, List<String> docsList, ReceiverBankingInfo receiverBankingInfo, Status status) {
+        this.id = id;
+        this.date = date;
+        this.insuredPerson = insuredPerson;
+        this.cardNumber = cardNumber;
+        this.docsList = docsList;
+        this.receiverBankingInfo = receiverBankingInfo;
+        this.status = status;
+    }
+
+    public Claim(String id, LocalDate date, Customer insuredPerson, String cardNumber, LocalDate examDate, List<String> docsList, float amount, Status status, ReceiverBankingInfo receiverBankingInfo) {
+        this.id = id;
+        this.date = date;
+        this.insuredPerson = insuredPerson;
+        this.cardNumber = cardNumber;
+        this.examDate = examDate;
+        this.docsList = docsList;
+        this.amount = amount;
+        this.status = status;
+        this.receiverBankingInfo = receiverBankingInfo;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public Customer getInsuredPerson() {
+        return insuredPerson;
+    }
+
+    public void setInsuredPerson(Customer insuredPerson) {
+        this.insuredPerson = insuredPerson;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public void setInsuranceCard(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public LocalDate getExamDate() {
+        return examDate;
+    }
+
+    public void setExamDate(LocalDate examDate) {
+        this.examDate = examDate;
+    }
+
+    public List<String> getDocsList() {
+        return docsList;
+    }
+
+    public void setDocsList(List<String> docsList) {
+        this.docsList = docsList;
+    }
+
+    public float getAmount() {
+        return amount;
+    }
+
+    public void setAmount(float amount) {
+        this.amount = amount;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public ReceiverBankingInfo getReceiverBankingInfo() {
+        return receiverBankingInfo;
+    }
+
+    public void setReceiverBankingInfo(ReceiverBankingInfo receiverBankingInfo) {
+        this.receiverBankingInfo = receiverBankingInfo;
+    }
+
+    @Override
+    public String toString() {
+        return "ID: " + id + ", Date: " + date.toString() + ", Insured Person: " + insuredPerson.getFullName() + ", Card Number: " + cardNumber + ", Docs List: " + docsList.toString() + ", Status: " + status + ", Receiver Banking Info: " + receiverBankingInfo.toString();
+    }
 }

@@ -1,4 +1,5 @@
 
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -9,12 +10,12 @@ public interface ClaimDao {
     /**
      * @param claim claim
      */
-    public void add(Claim claim);
+    public void add(Claim claim) throws IOException;
 
     /**
      * @param claim claim
      */
-    public void update(Claim claim);
+    public void update(Claim claim) throws IOException;
 
     /**
      * @param claim claim
@@ -30,6 +31,6 @@ public interface ClaimDao {
     /**
      * @return
      */
-    public ArrayList<Claim> getAll();
+    public HashMap<String, Claim> getAll();
 
 }

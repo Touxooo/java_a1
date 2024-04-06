@@ -11,6 +11,7 @@ public class Menu {
     private Scanner scanner;
     private InMemoryCustomerDao inMemoryCustomerDao;
     private InMemoryInsuranceCardDao inMemoryInsuranceCardDao;
+    private InMemoryClaimDao inMemoryClaimDao;
 
     /**
      * Default constructor
@@ -19,6 +20,7 @@ public class Menu {
         scanner = new Scanner(System.in).useDelimiter("\n");
         inMemoryCustomerDao = InMemoryCustomerDao.getInstance();
         inMemoryInsuranceCardDao = InMemoryInsuranceCardDao.getInstance();
+        inMemoryClaimDao = InMemoryClaimDao.getInstance();
     }
 
     /**
@@ -62,7 +64,11 @@ public class Menu {
      *
      */
     public void displayClaims() {
-        // TODO implement here
+        HashMap<String, Claim> claims = inMemoryClaimDao.getAll();
+
+        for (Map.Entry<String, Claim> set : claims.entrySet()) {
+            System.out.println(set.getValue().toString());
+        }
     }
 
     /**
@@ -89,6 +95,7 @@ public class Menu {
     public void displayOptions() {
         System.out.println("1. Display all customers");
         System.out.println("2. Display all insurance cards");
+        System.out.println("3. Display all claims");
         System.out.println("3. New claim");
         System.out.println("7. Exit");
     }
@@ -104,6 +111,9 @@ public class Menu {
                 break;
             case 2:
                 displayInsuranceCards();
+                break;
+            case 3:
+                displayClaims();
                 break;
             case 4:
                 displayCreateClaimMenu();

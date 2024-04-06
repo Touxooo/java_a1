@@ -9,7 +9,10 @@ public class ReceiverBankingInfo {
     /**
      * Default constructor
      */
-    public ReceiverBankingInfo() {
+    public ReceiverBankingInfo(String receiverName, String bankName, String bankNumber) {
+        this.receiverName = receiverName;
+        this.bankName = bankName;
+        this.bankNumber = bankNumber;
     }
 
     /**
@@ -27,4 +30,8 @@ public class ReceiverBankingInfo {
      */
     private String bankNumber;
 
+    @Override
+    public String toString() {
+        return bankName + " - " + receiverName + " - " + bankNumber;
+    }
 }

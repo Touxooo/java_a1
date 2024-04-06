@@ -13,6 +13,7 @@ import java.util.*;
 public class FileHandler {
     private InMemoryCustomerDao inMemoryCustomerDao;
     private InMemoryInsuranceCardDao inMemoryInsuranceCardDao;
+    private InMemoryClaimDao inMemoryClaimDao;
 
     /**
      * Default constructor
@@ -20,6 +21,7 @@ public class FileHandler {
     public FileHandler() {
         inMemoryCustomerDao = InMemoryCustomerDao.getInstance();
         inMemoryInsuranceCardDao = InMemoryInsuranceCardDao.getInstance();
+        inMemoryClaimDao = InMemoryClaimDao.getInstance();
     }
 
     /**
@@ -28,6 +30,7 @@ public class FileHandler {
     public void loadData() {
         loadCustomersFromFile("customers.txt");
         loadInsuranceCardsFromFile("insurance_cards.txt");
+        loadClaimsFromFile("claims.txt");
     }
 
     /**
@@ -114,9 +117,61 @@ public class FileHandler {
      * @param filepath
      * @return
      */
-    public boolean loadClaimsFromFile(String filepath) {
-        // TODO implement here
-        return true;
+    public void loadClaimsFromFile(String filepath) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                Claim claim;
+                String[] values = line.split(",");
+
+                String id = values[0];
+                String date = values[1];
+                String insuredPersonUid = values[2];
+                String cardNumber = values[3];
+                String[] docsList = values[4].split("-");
+                String receiverBankingInfoBank = values[5];
+                String receiverBankingInfoName = values[6];
+                String receiverBankingInfoNumber = values[7];
+                String status = values[8];
+
+                LocalDate fDate = LocalDate.parse(date);
+
+                Customer insuredPerson = inMemoryCustomerDao.getOne(insuredPersonUid);
+
+                if (insuredPerson == null) {
+                    throw new IOException(id + ": The provided insuredPersonUid " + insuredPersonUid + "is invalid");
+                }
+
+                if (!cardNumber.equals(insuredPerson.getInsuranceCard().getNumber())) {
+                    throw new IOException(id + ": The provided cardNumber " + cardNumber + "is invalid");
+                }
+
+                ArrayList<String> docsArrList = new ArrayList<String>(List.of(docsList));
+
+                ReceiverBankingInfo receiverBankingInfo = new ReceiverBankingInfo(receiverBankingInfoName, receiverBankingInfoBank, receiverBankingInfoNumber);
+
+                Status enumStatus = null;
+                if (status.equals("New")) {
+                    enumStatus = Status.New;
+                } else if (status.equals("Processing")) {
+                    enumStatus = Status.Processing;
+                } else if (status.equals("Done")) {
+                    enumStatus = Status.Done;
+                } else {
+                    throw new IOException(id + ": The provided status " + status + "is invalid");
+                }
+
+                claim = new Claim(id, fDate, insuredPerson, cardNumber, docsArrList, receiverBankingInfo, enumStatus);
+
+                System.out.println(claim.toString());
+
+                inMemoryClaimDao.add(claim);
+//                insuredPerson.addClaim(claim);
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading claims file: " + e.getMessage());
+            System.exit(-1);
+        }
     }
 
     /**
