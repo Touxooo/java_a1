@@ -12,6 +12,7 @@ public abstract class Customer {
     public Customer(String id, String fullName) {
        this.id = id;
        this.fullName = fullName;
+       this.insuranceCard = null;
     }
 
     /**
@@ -68,6 +69,12 @@ public abstract class Customer {
 
     @Override
     public String toString() {
-        return "ID " + id + " " + fullName;
+        String base = "ID: " + id + ", Full Name: " + fullName;
+
+        if (insuranceCard == null) {
+            return base + ", No Insurance Card";
+        } else {
+            return base + ", Insurance Card Number: " + insuranceCard.getNumber();
+        }
     }
 }
