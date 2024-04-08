@@ -85,7 +85,9 @@ public class Menu {
      *
      */
     public void displayProcessClaimMenu() {
-        // TODO implement here
+        ProcessClaimMenu processClaimMenu = new ProcessClaimMenu();
+        processClaimMenu.display();
+        displayOptions();
     }
 
     /**
@@ -99,7 +101,8 @@ public class Menu {
         System.out.println("1. Display all customers");
         System.out.println("2. Display all insurance cards");
         System.out.println("3. Display all claims");
-        System.out.println("4. New claim");
+        System.out.println("4. Create a new claim");
+        System.out.println("5. Process a claim");
         System.out.println("7. Exit");
     }
 
@@ -120,6 +123,9 @@ public class Menu {
                 break;
             case 4:
                 displayCreateClaimMenu();
+                break;
+            case 5:
+                displayProcessClaimMenu();
                 break;
             case 7:
                 System.exit(0);

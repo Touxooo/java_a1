@@ -41,8 +41,6 @@ public class InMemoryClaimDao implements ClaimDao {
      * @param claim claim
      */
     public void add(Claim claim) throws IOException {
-        System.out.println(claim.toString());
-
         if (claim.getId() == null) {
             String id = generateUniqueId();
             claim.setId(id);
