@@ -66,7 +66,7 @@ public class InMemoryClaimDao implements ClaimDao {
      * @param claim claim
      */
     public void delete(Claim claim) {
-        
+        claims.remove(claim.getId());
     }
 
     /**

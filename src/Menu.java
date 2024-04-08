@@ -94,7 +94,9 @@ public class Menu {
      *
      */
     public void displayDeleteClaimMenu() {
-        // TODO implement here
+        DeleteClaimMenu deleteClaimMenu = new DeleteClaimMenu();
+        deleteClaimMenu.display();
+        displayOptions();
     }
 
     public void displayOptions() {
@@ -103,6 +105,7 @@ public class Menu {
         System.out.println("3. Display all claims");
         System.out.println("4. Create a new claim");
         System.out.println("5. Process a claim");
+        System.out.println("6. Delete a claim");
         System.out.println("7. Exit");
     }
 
@@ -126,6 +129,9 @@ public class Menu {
                 break;
             case 5:
                 displayProcessClaimMenu();
+                break;
+            case 6:
+                displayDeleteClaimMenu();
                 break;
             case 7:
                 System.exit(0);
