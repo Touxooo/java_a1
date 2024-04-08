@@ -33,6 +33,7 @@ public class Menu {
         displayOptions();
         while (true) {
             getSelection();
+            displayOptions();
         }
     }
 
@@ -47,6 +48,7 @@ public class Menu {
     public void displayCustomers() {
         HashMap<String, Customer> customers = inMemoryCustomerDao.getAll();
 
+        System.out.println("--------------------------------------------------");
         for (Map.Entry<String, Customer> set : customers.entrySet()) {
             System.out.println(set.getValue().toString());
             System.out.println("--------------------------------------------------");
@@ -59,8 +61,10 @@ public class Menu {
     public void displayInsuranceCards() {
         HashMap<String, InsuranceCard> insuranceCards = inMemoryInsuranceCardDao.getAll();
 
+        System.out.println("--------------------------------------------------");
         for (Map.Entry<String, InsuranceCard> set : insuranceCards.entrySet()) {
             System.out.println(set.getValue().toString());
+            System.out.println("--------------------------------------------------");
         }
     }
 
@@ -70,8 +74,10 @@ public class Menu {
     public void displayClaims() {
         HashMap<String, Claim> claims = inMemoryClaimDao.getAll();
 
+        System.out.println("--------------------------------------------------");
         for (Map.Entry<String, Claim> set : claims.entrySet()) {
             System.out.println(set.getValue().toString());
+            System.out.println("--------------------------------------------------");
         }
     }
 
@@ -81,7 +87,6 @@ public class Menu {
     public void displayCreateClaimMenu() {
         CreateClaimMenu createClaimMenu = new CreateClaimMenu();
         createClaimMenu.display();
-        displayOptions();
     }
 
     /**
@@ -90,7 +95,6 @@ public class Menu {
     public void displayProcessClaimMenu() {
         ProcessClaimMenu processClaimMenu = new ProcessClaimMenu();
         processClaimMenu.display();
-        displayOptions();
     }
 
     /**
@@ -99,7 +103,6 @@ public class Menu {
     public void displayDeleteClaimMenu() {
         DeleteClaimMenu deleteClaimMenu = new DeleteClaimMenu();
         deleteClaimMenu.display();
-        displayOptions();
     }
 
     public void displayOptions() {

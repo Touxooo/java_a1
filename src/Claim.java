@@ -162,17 +162,17 @@ public class Claim {
 
     @Override
     public String toString() {
-        String baseClaim = "ID: " + id
-                + ", Date: " + date.toString()
-                + ", Insured Person: " + insuredPerson.getFullName()
-                + ", Card Number: " + cardNumber
-                + ", Exam date: " + examDate.toString()
-                + ", Docs List: "+ docsList.toString()
-                + ", Receiver Banking Info: " + receiverBankingInfo.toString()
-                + ", Status: " + status;
+        String baseClaim = "| ID: " + id
+                + "\n| Date: " + date.toString()
+                + "\n| Insured Person: " + insuredPerson.getFullName()
+                + "\n| Card Number: " + cardNumber
+                + "\n| Exam date: " + examDate.toString()
+                + "\n| Docs List: "+ docsList.toString()
+                + "\n| Receiver Banking Info: " + receiverBankingInfo.toString()
+                + "\n| Status: " + status;
 
         if (status == Status.Done) {
-            return baseClaim + ", Amount: " + amount;
+            return baseClaim + "\n| Amount: " + amount;
         } else {
             return baseClaim;
         }

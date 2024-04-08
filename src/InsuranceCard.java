@@ -70,9 +70,9 @@ public class InsuranceCard {
 
     @Override
     public String toString() {
-        return "ID: " + number
-                + ", Holder: " + holder.getFullName()
-                + ", Policy Owner: " + policyOwner.getFullName()
-                + ", Expiration Date: " + expirationDate.toString();
+        return "| ID: " + number
+                + "\n| Holder: " + holder.getFullName()
+                + "\n| Policy Owner: " + policyOwner.getFullName()
+                + "\n| Expiration Date: " + expirationDate.toString();
     }
 }
