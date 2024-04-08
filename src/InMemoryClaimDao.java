@@ -30,10 +30,10 @@ public class InMemoryClaimDao implements ClaimDao {
     }
 
     private String generateUniqueId() {
-        String id = Util.generateID(7);
+        String id = Util.generateID(10);
 
         while (claims.containsKey(id)) {
-            id = Util.generateID(7);
+            id = Util.generateID(10);
         }
 
         return id;

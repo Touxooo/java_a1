@@ -65,9 +65,10 @@ public class Claim {
         this.status = Status.New;
     }
 
-    public Claim(String id, LocalDate date, Customer insuredPerson, String cardNumber, List<String> docsList, ReceiverBankingInfo receiverBankingInfo, Status status) {
+    public Claim(String id, LocalDate date, Customer insuredPerson, String cardNumber, LocalDate examDate, List<String> docsList, ReceiverBankingInfo receiverBankingInfo, Status status) {
         this.id = id;
         this.date = date;
+        this.examDate = examDate;
         this.insuredPerson = insuredPerson;
         this.cardNumber = cardNumber;
         this.docsList = docsList;
@@ -75,7 +76,7 @@ public class Claim {
         this.status = status;
     }
 
-    public Claim(String id, LocalDate date, Customer insuredPerson, String cardNumber, LocalDate examDate, List<String> docsList, float amount, Status status, ReceiverBankingInfo receiverBankingInfo) {
+    public Claim(String id, LocalDate date, Customer insuredPerson, String cardNumber, LocalDate examDate, List<String> docsList, ReceiverBankingInfo receiverBankingInfo, Status status, float amount) {
         this.id = id;
         this.date = date;
         this.insuredPerson = insuredPerson;
@@ -165,6 +166,7 @@ public class Claim {
                 + ", Date: " + date.toString()
                 + ", Insured Person: " + insuredPerson.getFullName()
                 + ", Card Number: " + cardNumber
+                + ", Exam date: " + examDate.toString()
                 + ", Docs List: "+ docsList.toString()
                 + ", Receiver Banking Info: " + receiverBankingInfo.toString()
                 + ", Status: " + status;

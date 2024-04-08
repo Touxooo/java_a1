@@ -9,8 +9,12 @@ public class Main {
 
         fileHandler.loadData();
 
+        Thread savingDataHook = new Thread(fileHandler::saveData);
+        Runtime.getRuntime().addShutdownHook(savingDataHook);
+
         Menu menu = new Menu();
 
         menu.display();
+
     }
 }
