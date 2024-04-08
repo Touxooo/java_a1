@@ -52,6 +52,16 @@ public class Claim {
      */
     private ReceiverBankingInfo receiverBankingInfo;
 
+    public Claim(Customer insuredPerson, String cardNumber, LocalDate examDate, List<String> docsList, ReceiverBankingInfo receiverBankingInfo) {
+        this.date = LocalDate.now();
+        this.insuredPerson = insuredPerson;
+        this.cardNumber = cardNumber;
+        this.examDate = examDate;
+        this.docsList = docsList;
+        this.receiverBankingInfo = receiverBankingInfo;
+        this.status = Status.New;
+    }
+
     public Claim(String id, LocalDate date, Customer insuredPerson, String cardNumber, List<String> docsList, ReceiverBankingInfo receiverBankingInfo, Status status) {
         this.id = id;
         this.date = date;

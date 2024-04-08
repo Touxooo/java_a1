@@ -1,4 +1,5 @@
 
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -8,10 +9,10 @@ public class Menu {
     /**
      *
      */
-    private Scanner scanner;
-    private InMemoryCustomerDao inMemoryCustomerDao;
-    private InMemoryInsuranceCardDao inMemoryInsuranceCardDao;
-    private InMemoryClaimDao inMemoryClaimDao;
+    protected Scanner scanner;
+    protected InMemoryCustomerDao inMemoryCustomerDao;
+    protected InMemoryInsuranceCardDao inMemoryInsuranceCardDao;
+    protected InMemoryClaimDao inMemoryClaimDao;
 
     /**
      * Default constructor
@@ -75,7 +76,9 @@ public class Menu {
      *
      */
     public void displayCreateClaimMenu() {
-        // TODO implement here
+        CreateClaimMenu createClaimMenu = new CreateClaimMenu();
+        createClaimMenu.display();
+        displayOptions();
     }
 
     /**
@@ -96,7 +99,7 @@ public class Menu {
         System.out.println("1. Display all customers");
         System.out.println("2. Display all insurance cards");
         System.out.println("3. Display all claims");
-        System.out.println("3. New claim");
+        System.out.println("4. New claim");
         System.out.println("7. Exit");
     }
 

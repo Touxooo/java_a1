@@ -26,14 +26,33 @@ public class InMemoryClaimDao implements ClaimDao {
         return INSTANCE;
     }
 
+    private String generateUniqueId() {
+        String id = Util.generateID(7);
+
+        while (claims.containsKey(id)) {
+            id = Util.generateID(7);
+        }
+
+        return id;
+
+    }
+
     /**
      * @param claim claim
      */
     public void add(Claim claim) throws IOException {
         System.out.println(claim.toString());
-        if (claims.put(claim.getId(), claim) == null) {
+
+        if (claim.getId() == null) {
+            String id = generateUniqueId();
+            claim.setId(id);
+        }
+
+        if (claims.containsKey(claim.getId())) {
             throw new IOException("The claim with ID " + claim.getId() + " already exists or is invalid to add");
         }
+
+        claims.put(claim.getId(), claim);
     }
 
     /**

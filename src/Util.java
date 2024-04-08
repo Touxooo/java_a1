@@ -1,4 +1,3 @@
-
 import java.util.*;
 
 /**
@@ -10,6 +9,18 @@ public class Util {
      * Default constructor
      */
     public Util() {
+    }
+
+    public static String generateID(int n) {
+        Random random = new Random();
+        StringBuilder id = new StringBuilder();
+
+        for (int i = 0; i < n; i++) {
+            int digit = random.nextInt(10);
+            id.append(digit);
+        }
+
+        return id.toString();
     }
 
 //    /**
