@@ -1,10 +1,7 @@
-
-import java.io.IOException;
-import java.util.*;
-
 /**
- * 
+ * @author <Thomas Rabiet - s4031917>
  */
+
 public class ProcessClaimMenu extends Menu {
     float amount;
     Status status;

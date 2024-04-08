@@ -1,8 +1,5 @@
-
-import java.util.*;
-
 /**
- * 
+ * @author <Thomas Rabiet - s4031917>
  */
 public class ReceiverBankingInfo {
 

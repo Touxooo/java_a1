@@ -1,6 +1,8 @@
+/**
+ * @author <Thomas Rabiet - s4031917>
+ */
 
 import java.time.LocalDate;
-import java.util.*;
 
 /**
  * 

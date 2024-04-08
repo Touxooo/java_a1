@@ -1,9 +1,9 @@
+/**
+ * @author <Thomas Rabiet - s4031917>
+ */
 
 import java.util.*;
 
-/**
- * 
- */
 public class PolicyHolderCustomer extends Customer {
 
     /**

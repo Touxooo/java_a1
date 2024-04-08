@@ -1,3 +1,6 @@
+/**
+ * @author <Thomas Rabiet - s4031917>
+ */
 
 import java.io.BufferedReader;
 import java.io.FileReader;

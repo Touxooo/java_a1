@@ -1,5 +1,7 @@
+/**
+ * @author <Thomas Rabiet - s4031917>
+ */
 
-import java.io.IOException;
 import java.util.*;
 
 /**
