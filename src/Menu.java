@@ -49,6 +49,7 @@ public class Menu {
 
         for (Map.Entry<String, Customer> set : customers.entrySet()) {
             System.out.println(set.getValue().toString());
+            System.out.println("--------------------------------------------------");
         }
     }
 

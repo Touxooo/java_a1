@@ -27,22 +27,20 @@ public class PolicyHolderCustomer extends Customer {
     }
 
     public String getDependentsCustomersString() {
+        StringBuilder res = new StringBuilder();
+        res.append("\n| Dependents:");
         if (dependentsList.isEmpty()) {
-            return "(No dependents)";
+            return "\n\t No dependents)";
         }
-        StringBuilder res = new StringBuilder("(");
-
         for (Map.Entry<String, DependentCustomer> set : dependentsList.entrySet()) {
-            res.append(set.getKey()).append(" ").append(set.getValue().getFullName()).append(", ");
+            res.append("\n|\t- ").append(set.getValue().getFullName()).append(" (").append(set.getKey()).append(")");
         }
-
-        res = new StringBuilder(res.substring(0, res.length() - 2) + ") ");
 
         return res.toString();
     }
 
     @Override
     public String toString() {
-        return super.toString() + " PolicyHolder " + getDependentsCustomersString();
+        return super.toString() + "\n| Customer Type: PolicyHolder " + getDependentsCustomersString();
     }
 }

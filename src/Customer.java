@@ -69,12 +69,12 @@ public abstract class Customer {
 
     @Override
     public String toString() {
-        String base = "ID: " + id + ", Full Name: " + fullName;
+        String base = "| ID: " + id + "\n| Full Name: " + fullName;
 
         if (insuranceCard == null) {
-            return base + ", No Insurance Card";
+            return base + "\n| Insurance Card: None";
         } else {
-            return base + ", Insurance Card Number: " + insuranceCard.getNumber();
+            return base + "\n| Insurance Card: " + insuranceCard.getNumber();
         }
     }
 }

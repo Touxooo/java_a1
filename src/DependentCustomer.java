@@ -18,6 +18,6 @@ public class DependentCustomer extends Customer {
 
     @Override
     public String toString() {
-        return super.toString() + " Dependent Customer";
+        return super.toString() + "\n| Customer Type: Dependent";
     }
 }
